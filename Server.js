@@ -2,16 +2,25 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config({
+  path:'./.env'
+});
+
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({
+  origin:"https://upstepacademy.vercel.app"
+}));
 app.use(bodyParser.json());
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
-mongoose.connect('mongodb://localhost:27017/UpstepAppointment',{
+mongoose.connect(MONGODB_URI,{
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
