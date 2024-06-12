@@ -65,7 +65,7 @@ const newSchema = new mongoose.Schema({
 
 const collection = mongoose.model('collection', newSchema);
 
-app.post('/login', async (req, res) => {
+app.post('api/login', async (req, res) => {
   const { email, password } = req.body;
 
   try {
@@ -81,7 +81,7 @@ app.post('/login', async (req, res) => {
   }
 });
 
-app.post('/signup', async (req, res) => {
+app.post('api/signup', async (req, res) => {
   const { email, password } = req.body;
   const data = {
     email: email,
