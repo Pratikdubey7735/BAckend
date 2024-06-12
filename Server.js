@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 8000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
-  origin:"https://upstepacademy.vercel.app"
+  origin:"https://hospital-managment-roan.vercel.app/"
 }));
 app.use(bodyParser.json());
 app.get('/', (req, res) => {
